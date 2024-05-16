@@ -60,7 +60,7 @@ initJob:
 #
 exposure:
   loadbalancer:
-    # Only metallb is currently supported by the helm chart. Contribution welcome.
+    # Only metallb is currently supportcd ed by the helm chart. Contribution welcome.
     metallb:
       enabled: no
       externalIp:
@@ -71,7 +71,7 @@ exposure:
 
 image:
   pullSecrets: []
-  repository: ghcr.io/sergealexandre/hive-metastore
+  repository: quay.io/kubotal/hive-metastore
   tag: 3.1.3
   pullPolicy: IfNotPresent
 

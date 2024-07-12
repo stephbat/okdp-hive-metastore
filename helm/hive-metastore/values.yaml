@@ -1,28 +1,41 @@
-
-# TBD -> To Be Defined
-
+# Hive metastore database configuration.
 db:
+  # -- Hive metastore database host.
   host:
+  # -- Hive metastore database port.
   port: 5432
+  # -- Hive metastore database name.
   databaseName: hms
   user:
+    # -- Hive metastore database user.
     name: hms
+    # Hive metastore database credentials.
     password:
-      secretName: # TBD
-      propertyName: # TBD
+      # -- Hive metastore database existing kubernetes secret name.
+      secretName:
+      # -- Hive metastore database existing kubernetes secret key containing the password.
+      propertyName:
 
+# S3 warehouse configuration
 s3:
+  # -- S3 endpoint
   url:
   accessKey:
-    secretName: # TBD
-    propertyName: # TBD
+    # -- S3 access key existing kubernetes secret name
+    secretName:
+    # -- S3 access key kubernetes secret key containing the accessKey
+    propertyName:
   secretKey:
-    secretName: # TBD
-    propertyName: # TBD
+    # -- S3 secret key existing kubernetes secret name
+    secretName:
+    # -- S3 secret key kubernetes secret key containing the secretName
+    propertyName:
   requestTimeout: 0
 
 aws:
+  # -- AWS Pod execution IAM role
   podIamRole:
+  # -- S3 IAM role ARN for hive-metastore access to S3
   s3AssumeRoleArn:
 
 # As the metastore does not provide authentication/authorization mechanism,
@@ -33,8 +46,10 @@ networkPolicies:
   allowedNamespaceLabels: {}  # TBD
   allowedNamespace: [] # TBD
 
+# -- Desired number of hive-metastore pods to run.
 replicaCount: 2
 
+# -- Resource requests and limits for the hive-metastore pod.
 resources:
   limits:
     cpu: 500m
@@ -43,20 +58,22 @@ resources:
     cpu: 100m
     memory: 512Mi
 
+# -- Log4j2 log level. One of `` `debug`, `info`, `warn`, `error`, `fatal`, `trace`
 logLevel: INFO
 
+# -- Hive metastore database initialization job
 initJob:
   ttlSecondsAfterFinished: 60
 
-# Allow the metastore to be reachable from outside of the cluster
-# ** WARNING **
-#   As the metastore does not provide authentication/authorization mechanism, everybody will be able
+# -- Allow the metastore to be reachable from outside of the cluster
+# @raw
+#
+# ⚠️ As the metastore does not provide authentication/authorization mechanism, everybody will be able
 #   to access and modify all metastore data.
 #   So use this feature only
 #   - Temporary, for test and debugging
 #   - If access to your cluster is strictly controlled by some firewall, which will limit access to the
 #     exposed address and port.
-# ** WARNING **
 #
 exposure:
   loadbalancer:
@@ -69,10 +86,15 @@ exposure:
     enabled: no
     value:
 
+# Configuration for the Docker image to use.
 image:
+  # -- Image pullSecrets for private registries.
   pullSecrets: []
+  # -- Docker image registry.
   repository: quay.io/kubotal/hive-metastore
+  # -- Image tag.
   tag: 3.1.3
+  # -- Image pull policy.
   pullPolicy: IfNotPresent
 
 podSecurityContext:
@@ -87,6 +109,7 @@ containerSecurityContext:
     drop:
       - "ALL"
 
+# -- Hive metastore service port
 servicePort: 9083
 
 # -- Annotations to be added to the pod

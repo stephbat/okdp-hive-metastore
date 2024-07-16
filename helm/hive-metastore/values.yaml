@@ -43,8 +43,8 @@ aws:
 # So, we need to restrict access only from allowed namespace
 networkPolicies:
   enabled: true
-  allowedNamespaceLabels: {}  # TBD
-  allowedNamespace: [] # TBD
+  allowedNamespaceLabels: {}
+  allowedNamespace: []
 
 # -- Desired number of hive-metastore pods to run.
 replicaCount: 2

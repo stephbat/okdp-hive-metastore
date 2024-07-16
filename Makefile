@@ -1,7 +1,7 @@
 # ------------------- Build configuration
 
-IMAGES_DOCKER_REPO := quay.io/kubotal
-HELM_DOCKER_REPO := quay.io/kubotal/charts
+IMAGES_DOCKER_REPO := quay.io/okdp
+HELM_DOCKER_REPO := quay.io/okdp/charts
 
 BUILDX_CACHE=/tmp/docker_cache
 
@@ -58,7 +58,7 @@ apiVersion: v2
 name: hive-metastore
 version: $(HELM_VERSION)
 sources:
-  - https://github.com/kubotal/hive-metastore
+  - https://github.com/okdp/hive-metastore
 appVersion: $(APP_VERSION)
 endef
 export CHART_YAML

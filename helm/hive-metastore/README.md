@@ -306,7 +306,7 @@ string
 </td>
 			<td><div style="max-width: 300px;">
 <pre lang="json">
-"quay.io/kubotal/hive-metastore"
+"quay.io/okdp/hive-metastore"
 </pre>
 </div></td>
 			<td>Docker image registry.</td>
@@ -591,4 +591,4 @@ int
 
 ## Source Code
 
-* <https://github.com/kubotal/hive-metastore>
+* <https://github.com/okdp/hive-metastore>

@@ -3,5 +3,5 @@ apiVersion: v2
 name: hive-metastore
 version: 0.1.0
 sources:
-  - https://github.com/kubotal/hive-metastore
+  - https://github.com/okdp/hive-metastore
 appVersion: 3.1.3

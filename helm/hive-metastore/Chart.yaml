@@ -5,3 +5,7 @@ version: 3.1.3-1.0.0
 sources:
   - https://github.com/okdp/hive-metastore
 appVersion: 3.1.3
+maintainers:
+  - email: serge.alexandre@kubotal.io
+    name: SergeAlexandre
+    url: https://github.com/SergeAlexandre

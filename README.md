@@ -17,7 +17,7 @@ Also, access to the target S3 service is required.
 
 ## Installation
 
-Refer to [README](helm/superset/README.md) for the customization and installation guide.
+Refer to [README](helm/hive-metastore/README.md) for the customization and installation guide.
 
 ## Requirements
 
